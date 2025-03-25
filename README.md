@@ -19,8 +19,9 @@ This app explore some core React Native Concepts.
 4. Allow Goals to be manually re-ordered
 5. Toggle Dark/Light Mode
 6. Make goals persistent (do not disappear when app is closed/reopened)
+7. Replace Modal with View, blur background when opened
 
 ---
 ### Codebase Changes to Attempt
 1. Convert to Typescript
-2. Replace Button with Pressable
+2. Replace All Buttons with Pressable
