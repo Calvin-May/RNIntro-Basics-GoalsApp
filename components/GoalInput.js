@@ -31,10 +31,10 @@ function GoalInput({onAddGoal, visible, onCancel}) {
                 />   
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
-                        <Button title="Add Goal" onPress={addGoalHandler} />
+                        <Button title="Add Goal" onPress={addGoalHandler} color="#b180f0" />
                     </View>
                     <View style={styles.button}>
-                        <Button title="Cancel" onPress={onCancel} />
+                        <Button title="Cancel" onPress={onCancel} color="#f31282" />
                     </View>
                 </View> 
             </View>
@@ -49,25 +49,27 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor: "#cccccc",
-        
+        marginBottom: 24, 
     },
     textInput: {
         borderWidth: 1,
-        borderColor: "#cccccc",
+        borderColor: "#e4d0ff",
+        backgroundColor: "#e4d0ff",
+        borderRadius: 6,
         width: "80%",
         marginRight: 12,
-        padding: 8,
+        padding: 10,
+        boxShadow: "3px 4px 6px 3px black"
     },
     buttonContainer: {
         flexDirection: 'row',
-        padding: 16
+        padding: 16,
+        
     },
     button: {
         width: '30%',
-        marginHorizontal: 8
+        marginHorizontal: 8,
+        boxShadow: "3px 3px 6px 3px black"
     },
     image: {
         width: 150,
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
         margin: 20,
         backgroundColor: '#311b6b',
         borderRadius: 18,
-        color: '#111111'
+        color: '#111111',
+        boxShadow: "3px 3px 6px 3px black"
     }
 });

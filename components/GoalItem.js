@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
     goalItem: {
     margin: 8,
     borderRadius: 6,
-    backgroundColor: '#5e0acc',
+    backgroundColor: '#f3eff8',
   },
   goalItemText: {
-    color: '#ffffffff',
+    color: '#000000',
     fontSize: 20,
+    fontWeight: '500',
     padding: 12,
   },
   androidRipple : { // Used for Android Devices

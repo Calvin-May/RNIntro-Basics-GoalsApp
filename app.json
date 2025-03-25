@@ -4,6 +4,7 @@
     "slug": "goals-app-react-basics",
     "version": "1.0.0",
     "orientation": "portrait",
+    "backgroundColor": "#1e0858",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
