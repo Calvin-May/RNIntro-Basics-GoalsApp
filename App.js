@@ -2,13 +2,15 @@
 
 // Import Statements to utilize components provided by default through Expo and React Native packages
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-// Default functional Component that will render our App!
+// Default functional Component that will render our App! This simple function returns JSX code that will be
+//-compiled into native Javascript.
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{ margin: 16, borderWidth: 1, padding: 5 }}>Open up App.js to start working on your app!</Text>
+      <Button title="I am a Button" />
       <StatusBar style="auto" />
     </View>
   );

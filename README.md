@@ -9,3 +9,16 @@ This app explore some core React Native Concepts.
 1. Using basic React Native Components to build UIs
 2. Simple styling React Native Apps
 3. Adding interactivity and basic state management
+
+---
+### Possible Features to Add
+
+1. Update Existing Goals
+2. Add Goal Priority
+3. Allow Goals to be Sorted (Date Entered, Priority)
+4. Toggle Dark/Light Mode
+
+---
+### Codebase Changes to Attempt
+1. Convert to Typescript
+2. Replace Button with Pressable
