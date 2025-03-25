@@ -1,6 +1,7 @@
 import { StyleSheet, TextInput, View, Button } from "react-native"
 import { useState } from "react";
 
+// Goal Input with onAddGoal Prop to pass addGoalHandler function from App Component
 function GoalInput({onAddGoal}) {
 
     // Variables to hold User Input and manage state 
@@ -12,9 +13,10 @@ function GoalInput({onAddGoal}) {
         
     }
 
+    // Function that uses the onAddGoal prop, passed from App component to add the new Goal Text to the list
     function addGoalHandler() {
         onAddGoal(enteredGoalText);
-        setEnteredGoalText('');
+        setEnteredGoalText(''); // Clear the Entered Text state for data binding with the text input
     }
 
     return (
@@ -23,7 +25,7 @@ function GoalInput({onAddGoal}) {
                 placeholder="Your Course Goal"
                 onChangeText={goalInputHandler}
                 style={styles.TextInput}
-                value={enteredGoalText}
+                value={enteredGoalText} // Bind the value of the Input to the entered Text, so we can clear it
             />    
             <Button title="Add Goal" onPress={addGoalHandler} />
         </View>
