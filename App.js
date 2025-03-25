@@ -21,9 +21,9 @@ export default function App() {
       [...currentCourseGoals, {text: enteredGoalText, id: Math.random().toString()}] // Instead of storing strings, store objects with a Key for FlatList to use
       //[...currentCourseGoals, {text: enteredGoalText, key: Math.random().toString()}] // Using 'Key' instead of 'id' allows FlatList to automatically reference the key, negating the need of the KeyExtractor Prop
     )); // Best Practice way to update state of an array - Functionally, this appends the new item to the array
-
     // Same as above, but condensed
     //setCourseGoals((currentCourseGoals) => [...currentCourseGoals, enteredGoalText]);
+    toggleAddGoalModalHandler();
   }
 
   function deleteGoalHandler(id) {
@@ -33,7 +33,7 @@ export default function App() {
   }
 
   function toggleAddGoalModalHandler() {
-    setIsModalVisible(true);
+    setIsModalVisible(!isModalVisible);
   }
 
 
@@ -41,7 +41,7 @@ export default function App() {
   return (
     <View style={styles.appContainer}>
       <Button title='Add new Goal' color='#5e0acc' onPress={toggleAddGoalModalHandler}/>
-      <GoalInput onAddGoal={addGoalHandler} visible={isModalVisible}/>
+      <GoalInput onAddGoal={addGoalHandler} visible={isModalVisible} onCancel={toggleAddGoalModalHandler}/>
       <View id="viewGoalsContainer" style={styles.goalsContainer}>
       {/*Use Flatlist it iterate through list of goals and output JSX that displays all of the goals added by the User */}     
       <FlatList
@@ -62,10 +62,14 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 100,
     paddingHorizontal: 30,
   },
   goalsContainer: {
+    borderTopWidth: 2,
+    borderTopColor: 'grey',
+    marginTop: 20,
+    paddingTop: 8,
     flex: 6,
   }
 });
