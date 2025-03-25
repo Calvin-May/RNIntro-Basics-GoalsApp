@@ -2,7 +2,7 @@
 
 // Import Statements to utilize components provided by default through Expo and React Native packages
 import { useState } from "react"; // Allows us to manage simple state
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Button } from "react-native";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
@@ -11,6 +11,7 @@ import GoalInput from "./components/GoalInput";
 export default function App() {
   // Variables to hold User Input and manage state 
   const [courseGoals, setCourseGoals] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Function to handle onPress event of button. This Updates the Adds the new Goal to our list of goals
   function addGoalHandler(enteredGoalText) {
@@ -29,11 +30,18 @@ export default function App() {
     setCourseGoals((currentCourseGoals) => {
       return currentCourseGoals.filter((goal) => goal.id !== id);
     })
-}
+  }
+
+  function toggleAddGoalModalHandler() {
+    setIsModalVisible(true);
+  }
+
+
   
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler}/>
+      <Button title='Add new Goal' color='#5e0acc' onPress={toggleAddGoalModalHandler}/>
+      <GoalInput onAddGoal={addGoalHandler} visible={isModalVisible}/>
       <View id="viewGoalsContainer" style={styles.goalsContainer}>
       {/*Use Flatlist it iterate through list of goals and output JSX that displays all of the goals added by the User */}     
       <FlatList
