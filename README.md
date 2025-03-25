@@ -16,7 +16,9 @@ This app explore some core React Native Concepts.
 1. Update Existing Goals
 2. Add Goal Priority
 3. Allow Goals to be Sorted (Date Entered, Priority)
-4. Toggle Dark/Light Mode
+4. Allow Goals to be manually re-ordered
+5. Toggle Dark/Light Mode
+6. Make goals persistent (do not disappear when app is closed/reopened)
 
 ---
 ### Codebase Changes to Attempt
