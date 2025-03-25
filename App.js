@@ -2,7 +2,7 @@
 
 // Import Statements to utilize components provided by default through Expo and React Native packages
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from "react-native";
 import { useState } from "react"; // Allows us to manage simple state
 
 // Default functional Component that will render our App! This simple function returns JSX code that will be
@@ -40,6 +40,7 @@ export default function App() {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View id="viewGoalsContainer" style={styles.goalsContainer}>
+      <ScrollView alwaysBounceVertical={true}>
       {/*Standard Javascript to loop through the Goal Array, and output JSX that displays all of the goals added by the User */}
         {courseGoals.map((goal) => (
           <View key={goal} style={styles.goalItem}>
@@ -48,6 +49,7 @@ export default function App() {
             </Text>
           </View>
           ))}
+      </ScrollView>
       </View>
     </View>
   );
