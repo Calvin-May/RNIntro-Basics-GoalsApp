@@ -22,7 +22,8 @@ export default function App() {
     // Update the State of the Course Goals, using the text entered by the user
     //setCourseGoals([...courseGoals, enteredGoalText]);// Not the best way to insert a new item in the array, as our State depends on the previous State of the array
     setCourseGoals((currentCourseGoals) => (
-      [...currentCourseGoals, enteredGoalText]
+      [...currentCourseGoals, {text: enteredGoalText, id: Math.random().toString()}] // Instead of storing strings, store objects with a Key for FlatList to use
+      //[...currentCourseGoals, {text: enteredGoalText, key: Math.random().toString()}] // Using 'Key' instead of 'id' allows FlatList to automatically reference the key, negating the need of the KeyExtractor Prop
     )); // Best Practice way to update state of an array - Functionally, this appends the new item to the array
 
     // Same as above, but condensed
@@ -40,16 +41,22 @@ export default function App() {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View id="viewGoalsContainer" style={styles.goalsContainer}>
-      <ScrollView alwaysBounceVertical={true}>
-      {/*Standard Javascript to loop through the Goal Array, and output JSX that displays all of the goals added by the User */}
-        {courseGoals.map((goal) => (
-          <View key={goal} style={styles.goalItem}>
-            <Text style={styles.goalItemText}>
-              {goal}
-            </Text>
-          </View>
-          ))}
-      </ScrollView>
+      {/*Use Flatlist it iterate through list of goals and output JSX that displays all of the goals added by the User */}     
+      <FlatList
+        data={courseGoals}
+        keyExtractor={(item, index) => { //Manually Setting up the Key, using the ID of the CourseGoals[] objects.
+          return item.id;
+        }}
+        renderItem={(listData) => {
+          return (
+            <View style={styles.goalItem}>
+              <Text style={styles.goalItemText}>
+                {listData.item.text}
+              </Text>
+            </View>
+          )
+        }}
+      />
       </View>
     </View>
   );
